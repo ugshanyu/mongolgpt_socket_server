@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask_socketio import SocketIO, emit, join_room
 
 # Initialize Flask app and SocketIO
@@ -6,11 +6,15 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
 socketio = SocketIO(app, cors_allowed_origins="*")  # Allow cross-origin requests
 
+# Simple route for /hello
+@app.route('/hello')
+def hello_world():
+    return "world"
+
 # Event handler for client connection with room joining
 @socketio.on('connect')
 def handle_connect():
     print('Client connected')
-    # Here, you might need additional logic to pass `page_id` during connection.
 
 # Event handler for joining a room when a page connects
 @socketio.on('join_page')
@@ -19,7 +23,7 @@ def handle_join_page(data):
     if page_id:
         join_room(page_id)
         print(f'Client joined room for page_id: {page_id}')
-        emit('server_response', {'message': f'Joined room for page_id: {page_id}',"success":True}, room=page_id)
+        emit('server_response', {'message': f'Joined room for page_id: {page_id}', "success": True}, room=page_id)
 
 # Event handler for client disconnection
 @socketio.on('disconnect')
