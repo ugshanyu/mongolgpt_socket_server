@@ -1,0 +1,17 @@
+2024-11-03 16:42:32,042 INFO: Starting server... [in C:\Users\User\Socket_MongolGPT\app.py:95]
+2024-11-03 16:42:32,043 CRITICAL: Failed to start server: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted [in C:\Users\User\Socket_MongolGPT\app.py:106]
+Traceback (most recent call last):
+  File "C:\Users\User\Socket_MongolGPT\app.py", line 97, in <module>
+    socketio.run(
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask_socketio\__init__.py", line 695, in run
+    run_server()
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask_socketio\__init__.py", line 672, in run_server
+    eventlet_socket = eventlet.listen(addresses[0][4],
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\site-packages\eventlet\convenience.py", line 78, in listen
+    sock.bind(addr)
+OSError: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted
+2024-11-03 16:42:43,025 INFO: Starting server... [in C:\Users\User\Socket_MongolGPT\app.py:95]
+2024-11-03 16:43:48,756 INFO: Starting server... [in C:\Users\User\Socket_MongolGPT\app.py:95]
+2024-11-03 16:44:39,951 INFO: Starting server... [in C:\Users\User\Socket_MongolGPT\app.py:96]
+2024-11-03 16:46:48,698 INFO: Starting server... [in C:\Users\User\Socket_MongolGPT\app.py:96]
